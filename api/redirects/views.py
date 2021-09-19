@@ -13,7 +13,7 @@ class RedirectViewSet(viewsets.ViewSet):
     def retrieve(self, request, key=None):
         queryset = cache.get('QuerysetRedirect')
         if not queryset:
-            queryset = Redirect.objects.all() # first time
+            queryset = Redirect.objects.filter(active=True) # first time
         redirect = get_object_or_404(queryset, key=key)
         serializer = RedirectSerializer(redirect)
         return Response(serializer.data)
