@@ -109,13 +109,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'api_memcached_1:11211',
-    }
-}
-
 INTERNAL_IPS = [
     '0.0.0.0',
 ]
